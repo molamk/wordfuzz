@@ -23,10 +23,10 @@ yarn add wordfuzz
 ## How to use
 
 ```javascript
-const fuzz = require('wordfuzz');
+const fuzz = require("wordfuzz").fuzz;
 
 fuzz()
-  .meansLike('Hello')
+  .meansLike("word")
   .max(3)
   .then(console.log)
   .catch(console.error);
