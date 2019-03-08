@@ -50,4 +50,4 @@ export class Muse extends Deferred<MuseAnswer> {
   }
 }
 
-export default Muse.init;
+exports.default = Muse.init;
