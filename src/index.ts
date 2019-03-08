@@ -10,11 +10,11 @@ interface IMuseResposne {
   tags: string[];
 }
 
-declare type MuseAnswer = IMuseResposne[];
+export declare type MuseAnswer = IMuseResposne[];
 
 const DEFAULT_PROMISE = axios.get(BASE_URL).then<MuseAnswer>(res => res.data);
 
-class Muse extends Deferred<MuseAnswer> {
+export class Muse extends Deferred<MuseAnswer> {
   public static init() {
     return new Muse();
   }
