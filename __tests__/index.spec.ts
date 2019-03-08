@@ -1,4 +1,4 @@
-import { muse } from '../src';
+import muse from '../src';
 
 const expected = [
   { word: 'hi', score: 43130, tags: ['syn', 'n'] },

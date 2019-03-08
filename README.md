@@ -10,14 +10,43 @@ A Datamuse API wrapper
 [![npm (scoped)](https://img.shields.io/npm/v/wordfuzz.svg)](https://www.npmjs.com/package/wordfuzz)
 [![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/wordfuzz.svg)](https://www.npmjs.com/package/wordfuzz)
 
-## How to use
-
-### Install dependencies
+## Install dependency
 
 ```bash
-# Using yarn
-yarn
+# With npm
+npm install --save wordfuzz
 
-# Using npm
-npm install
+# With yarn
+yarn add wordfuzz
+```
+
+## How to use
+
+```javascript
+const fuzz = require('wordfuzz');
+
+fuzz()
+  .meansLike('Hello')
+  .max(3)
+  .then(console.log)
+  .catch(console.error);
+
+/* Outputs
+[{
+    word: 'hi',
+    score: 43130,
+    tags: ['syn', 'n']
+  },
+  {
+    word: 'howdy',
+    score: 42247,
+    tags: ['syn', 'n']
+  },
+  {
+    word: 'hullo',
+    score: 39883,
+    tags: ['syn', 'n']
+  }
+]
+/*
 ```
