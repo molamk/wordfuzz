@@ -1,6 +1,6 @@
 {
   "name": "wordfuzz",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "NLP based on the Datamuse API",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
