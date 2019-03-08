@@ -1,0 +1,10 @@
+language: node_js
+sudo: false
+node_js:
+  - 11
+  - 10
+
+scripts:
+  - npm install codecov -g
+after_success:
+  - codecov
