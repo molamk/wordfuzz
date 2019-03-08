@@ -1,6 +1,14 @@
-import { sum } from "../src/index";
+import { muse } from '../src';
 
-test("should return correct sum", () => {
-  const received = sum(1, 2, 3, 4);
-  expect(received).toBe(10);
+const expected = [
+  { word: 'hi', score: 43130, tags: ['syn', 'n'] },
+  { word: 'howdy', score: 42247, tags: ['syn', 'n'] },
+  { word: 'hullo', score: 39883, tags: ['syn', 'n'] }
+];
+
+test('Means like', () => {
+  const query = muse()
+    .meansLike('hello')
+    .max(3);
+  expect(query).resolves.toEqual(expected);
 });

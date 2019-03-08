@@ -10,8 +10,14 @@ A Datamuse API wrapper
 [![npm (scoped)](https://img.shields.io/npm/v/wordfuzz.svg)](https://www.npmjs.com/package/wordfuzz)
 [![npm bundle size (minified)](https://img.shields.io/bundlephobia/min/wordfuzz.svg)](https://www.npmjs.com/package/wordfuzz)
 
-## Installing
+## How to use
+
+### Install dependencies
 
 ```bash
+# Using yarn
 yarn
+
+# Using npm
+npm install
 ```
