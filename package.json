@@ -2,16 +2,33 @@
   "name": "wordfuzz",
   "version": "1.0.0",
   "description": "NLP based on the Datamuse API",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": "git@github.com:molamk/wordfuzz.git",
   "author": "molamk <molamk@protonmail.com>",
+  "keywords": [
+    "nlp",
+    "word",
+    "rhyme",
+    "synonym",
+    "similar",
+    "datamuse",
+    "meaning",
+    "typescript",
+    "jest"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "tsc",
     "pre-commit": "npm run lint && npm test",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "tslint -c tslint.json -p tsconfig.json"
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run pre-commit",
+    "preversion": "npm run pre-commit",
+    "version": "git add .",
+    "postversion": "git push && git push --tags"
   },
   "devDependencies": {
     "@types/jest": "^24.0.9",
