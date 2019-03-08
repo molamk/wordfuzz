@@ -19,7 +19,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "start": "npm run build && node dist/index.js",
+    "start": "npm run build && node lib/index.js",
     "dev": "nodemon --watch 'src/**/*' -e ts --exec ts-node ./src/index.ts",
     "build": "tsc",
     "pre-commit": "npm run lint && npm test",
