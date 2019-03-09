@@ -20,33 +20,22 @@ npm install --save wordfuzz
 yarn add wordfuzz
 ```
 
-## How to use
+## Quickstart
 
 ```javascript
-const fuzz = require("wordfuzz").fuzz;
+const fuzz = require('wordfuzz');
 
 fuzz()
-  .meansLike("word")
-  .max(3)
-  .then(console.log)
-  .catch(console.error);
+  .meansLike('develop')
+  .endsWith('m')
+  .max(1)
+  .ask().then(console.log);
 
-/* Outputs
-[{
-    word: 'hi',
-    score: 43130,
-    tags: ['syn', 'n']
-  },
-  {
-    word: 'howdy',
-    score: 42247,
-    tags: ['syn', 'n']
-  },
-  {
-    word: 'hullo',
-    score: 39883,
-    tags: ['syn', 'n']
-  }
-]
-/*
+// [{ word: 'transform', score: 17905, tags: ['v'] }]
 ```
+
+## TODO
+
+- [ ] Complete Datamuse integration
+- [ ] Provide option to communicate with local Wordnet
+- [ ] Generate sentences instead of just words

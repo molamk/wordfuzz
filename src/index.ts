@@ -17,6 +17,8 @@ class Fuzzer {
   public meansLike: r = ml => this.k({ ml });
   public soundsLike: r = sl => this.k({ sl });
   public spelledLike: r = sp => this.k({ sp });
+  public startWith: r = s => this.k({ sp: `${s}*` });
+  public endsWith: r = s => this.k({ sp: `*${s}` });
   public nounFromAdjective: r = relJja => this.k({ relJja });
   public adjectiveFromNoun: r = relJjb => this.k({ relJjb });
   public synonym: r = relSyn => this.k({ relSyn });
@@ -37,3 +39,6 @@ class Fuzzer {
 
 module.exports = Fuzzer.init;
 export default Fuzzer.init;
+
+// tslint:disable-next-line: no-console
+Fuzzer.init().meansLike('develop').endsWith('m').max(1).ask().then(console.log);
