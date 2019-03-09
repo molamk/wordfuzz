@@ -1,4 +1,4 @@
-import { fuzz } from '../src';
+import fuzz from '../src';
 
 const expected = [
   { word: 'hi', score: 43130, tags: ['syn', 'n'] },
@@ -9,6 +9,7 @@ const expected = [
 test('Means like', () => {
   const query = fuzz()
     .meansLike('hello')
-    .max(3);
+    .max(3)
+    .ask();
   expect(query).resolves.toEqual(expected);
 });

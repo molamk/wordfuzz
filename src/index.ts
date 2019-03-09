@@ -1,53 +1,30 @@
-import axios from 'axios';
 import { buildURL, IQuery } from './builder';
-import { Deferred } from './deferred';
+import { get } from './httpGet';
 
-export const BASE_URL = 'https://api.datamuse.com/words';
+class Fuzzer {
+  public static init = () => new Fuzzer();
+  private q: IQuery = {};
+  private constructor(qqq?: IQuery) {
+    this.q = qqq ? { ...qqq } : {};
+  }
 
-interface IMuseResposne {
-  word: string;
-  score: number;
-  tags: string[];
+  public ask = () => get(buildURL(this.q));
+
+  // Queries
+  public meansLike = (ml: string) => this.k({ ml });
+  public max = (max: number) => this.k({ max });
+
+  private k = (qq: IQuery) => new Fuzzer({ ...this.q, ...qq });
 }
 
-export declare type MuseAnswer = IMuseResposne[];
+module.exports = Fuzzer.init;
+export default Fuzzer.init;
 
-const DEFAULT_PROMISE = axios.get(BASE_URL).then<MuseAnswer>(res => res.data);
-
-export class Muse extends Deferred<MuseAnswer> {
-  public static init() {
-    return new Muse();
-  }
-  private query: IQuery;
-
-  constructor(received?: Muse) {
-    if (received) {
-      super(received.promise);
-      this.query = { ...received.query };
-    } else {
-      super(DEFAULT_PROMISE);
-      this.query = {};
-    }
-  }
-
-  public max(n: number): Muse {
-    this.query.max = n;
-    return this.clone();
-  }
-
-  public meansLike(word: string): Muse {
-    this.query.ml = word;
-    return this.clone();
-  }
-
-  private clone(): Muse {
-    this.updatePromise();
-    return new Muse(this);
-  }
-
-  private updatePromise() {
-    this.promise = axios.get(buildURL(this.query)).then<MuseAnswer>(res => res.data);
-  }
-}
-
-export const fuzz = () => Muse.init();
+// const q = Fuzzer.init()
+//   .meansLike('hello')
+//   .max(3)
+//   .ask()
+//   // tslint:disable-next-line: no-console
+//   .then(console.log)
+//   // tslint:disable-next-line: no-console
+//   .catch(console.error);

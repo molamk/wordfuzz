@@ -1,5 +1,3 @@
-import { BASE_URL } from '.';
-
 export interface IQuery {
   ml?: string;
   max?: number;
@@ -28,4 +26,5 @@ export const buildURL = (q: IQuery) =>
     .map(([k, v]) => [k, `${v}`])
     .map(([k, v]) => [k, v.split(/\s/).join('+')])
     .sort(([k1], [k2]) => k1.localeCompare(k2))
-    .reduce((acc, [k, v], idx) => acc + `${idx === 0 ? '' : '&'}${k}=${v}`, `${BASE_URL}?`);
+    .map(([k, v]) => `${k}=${v}`)
+    .join('&');
