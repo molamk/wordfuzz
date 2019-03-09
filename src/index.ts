@@ -39,6 +39,3 @@ class Fuzzer {
 
 module.exports = Fuzzer.init;
 export default Fuzzer.init;
-
-// tslint:disable-next-line: no-console
-Fuzzer.init().meansLike('develop').endsWith('m').max(1).ask().then(console.log);
