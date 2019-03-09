@@ -1,7 +1,7 @@
 {
   "name": "wordfuzz",
   "version": "1.0.10",
-  "description": "NLP based on the Datamuse API",
+  "description": "Natural Language Processing with Datamuse and Wordnet",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": "git@github.com:molamk/wordfuzz.git",

@@ -1,6 +1,6 @@
 # wordfuzz
 
-A Datamuse API wrapper
+Natural Language Processing with Datamuse and Wordnet
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/gh/molamk/wordfuzz/branch/master/graph/badge.svg)](https://codecov.io/gh/molamk/wordfuzz)
