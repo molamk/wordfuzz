@@ -1,4 +1,4 @@
-import { get } from '../src/httpGet';
+import { get } from '../src/helpers/httpGet';
 
 test('it should send a valid http request', () => {
   const ans = [

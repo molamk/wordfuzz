@@ -1,3 +1,5 @@
+// https://stackoverflow.com/a/9577651/4959547
+
 import https from 'https';
 
 export const get = (query: string) =>

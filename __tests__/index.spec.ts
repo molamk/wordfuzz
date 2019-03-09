@@ -1,15 +1,25 @@
 import fuzz from '../src';
 
-const expected = [
-  { word: 'hi', score: 43130, tags: ['syn', 'n'] },
-  { word: 'howdy', score: 42247, tags: ['syn', 'n'] },
-  { word: 'hullo', score: 39883, tags: ['syn', 'n'] }
-];
-
 test('Means like', () => {
-  const query = fuzz()
+  const q = fuzz()
     .meansLike('hello')
-    .max(3)
+    .max(1)
     .ask();
-  expect(query).resolves.toEqual(expected);
+  return expect(q).resolves.toEqual([{ word: 'hi', score: 43130, tags: ['syn', 'n'] }]);
 });
+
+test('Sounds like', () =>
+  expect(
+    fuzz()
+      .soundsLike('elefint')
+      .max(1)
+      .ask()
+  ).resolves.toEqual([{ word: 'elefant', score: 94, numSyllables: 3 }]));
+
+test('Spelled like', () =>
+  expect(
+    fuzz()
+      .spelledLike('coffee')
+      .max(1)
+      .ask()
+  ).resolves.toEqual([{ word: 'coffee', score: 67924 }]));
